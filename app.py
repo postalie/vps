@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 VPS Dashboard - Remnawave Style
-Main Application
+Main App
 """
 
 import os
