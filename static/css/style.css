@@ -1,84 +1,144 @@
-/* VPS Dashboard - Remnawave Style */
-/* Color Palette inspired by docs.rw */
+/* VPS Dashboard - Mantine UI Style (docs.rw) */
+/* Exact copy of Mantine design system */
 
 :root {
-    /* Primary Colors */
-    --primary-50: #eef2ff;
-    --primary-100: #e0e7ff;
-    --primary-200: #c7d2fe;
-    --primary-300: #a5b4fc;
-    --primary-400: #818cf8;
-    --primary-500: #6366f1;
-    --primary-600: #4f46e5;
-    --primary-700: #4338ca;
-    --primary-800: #3730a3;
-    --primary-900: #312e81;
+    --mantine-z-index-app: 100;
+    --mantine-z-index-modal: 200;
+    --mantine-z-index-popover: 300;
+    --mantine-z-index-overlay: 400;
+    --mantine-z-index-max: 9999;
+    --mantine-scale: 1;
+    --mantine-cursor-type: default;
+    --mantine-webkit-font-smoothing: antialiased;
+    --mantine-moz-font-smoothing: grayscale;
+    --mantine-color-white: #fff;
+    --mantine-color-black: #000;
+    --mantine-line-height: 1.55;
+    --mantine-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    --mantine-font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    --mantine-heading-font-weight: 700;
+    --mantine-heading-text-wrap: wrap;
+    --mantine-radius-default: calc(0.25rem * var(--mantine-scale));
+    --mantine-primary-color-filled: var(--mantine-color-blue-filled);
+    --mantine-primary-color-filled-hover: var(--mantine-color-blue-filled-hover);
+    --mantine-primary-color-light: var(--mantine-color-blue-light);
+    --mantine-primary-color-light-hover: var(--mantine-color-blue-light-hover);
+    --mantine-primary-color-light-color: var(--mantine-color-blue-light-color);
+    --mantine-breakpoint-xs: 36em;
+    --mantine-breakpoint-sm: 48em;
+    --mantine-breakpoint-md: 62em;
+    --mantine-breakpoint-lg: 75em;
+    --mantine-breakpoint-xl: 88em;
+    --mantine-spacing-xs: calc(0.625rem * var(--mantine-scale));
+    --mantine-spacing-sm: calc(0.75rem * var(--mantine-scale));
+    --mantine-spacing-md: calc(1rem * var(--mantine-scale));
+    --mantine-spacing-lg: calc(1.25rem * var(--mantine-scale));
+    --mantine-spacing-xl: calc(2rem * var(--mantine-scale));
+    --mantine-font-size-xs: calc(0.75rem * var(--mantine-scale));
+    --mantine-font-size-sm: calc(0.875rem * var(--mantine-scale));
+    --mantine-font-size-md: calc(1rem * var(--mantine-scale));
+    --mantine-font-size-lg: calc(1.125rem * var(--mantine-scale));
+    --mantine-font-size-xl: calc(1.25rem * var(--mantine-scale));
+    --mantine-line-height-xs: 1.4;
+    --mantine-line-height-sm: 1.45;
+    --mantine-line-height-md: 1.55;
+    --mantine-line-height-lg: 1.6;
+    --mantine-line-height-xl: 1.65;
+    --mantine-shadow-xs: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.05), 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.1);
+    --mantine-shadow-sm: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0 0.625rem 0.9375rem -0.3125rem, rgba(0, 0, 0, 0.04) 0 0.4375rem 0.4375rem -0.3125rem;
+    --mantine-shadow-md: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0 1.25rem 1.5625rem -0.3125rem, rgba(0, 0, 0, 0.04) 0 0.625rem 0.625rem -0.3125rem;
+    --mantine-shadow-lg: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0 1.75rem 1.4375rem -0.4375rem, rgba(0, 0, 0, 0.04) 0 0.75rem 0.75rem -0.4375rem;
+    --mantine-shadow-xl: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05) 0 2.25rem 1.75rem -0.4375rem, rgba(0, 0, 0, 0.04) 0 1.0625rem 1.0625rem -0.4375rem;
+    --mantine-radius-xs: calc(0.125rem * var(--mantine-scale));
+    --mantine-radius-sm: calc(0.25rem * var(--mantine-scale));
+    --mantine-radius-md: calc(0.5rem * var(--mantine-scale));
+    --mantine-radius-lg: calc(1rem * var(--mantine-scale));
+    --mantine-radius-xl: calc(2rem * var(--mantine-scale));
     
-    /* Purple Accent */
-    --purple-500: #8b5cf6;
-    --purple-600: #7c3aed;
+    /* Dark theme colors (docs.rw style) */
+    --mantine-color-scheme: dark;
+    --mantine-color-bright: var(--mantine-color-white);
+    --mantine-color-text: var(--mantine-color-dark-0);
+    --mantine-color-body: #0f141c;
+    --mantine-color-error: var(--mantine-color-red-8);
+    --mantine-color-placeholder: var(--mantine-color-dark-3);
+    --mantine-color-anchor: var(--mantine-color-blue-4);
+    --mantine-color-default: var(--mantine-color-dark-6);
+    --mantine-color-default-hover: var(--mantine-color-dark-5);
+    --mantine-color-default-color: var(--mantine-color-white);
+    --mantine-color-default-border: var(--mantine-color-dark-4);
+    --mantine-color-dimmed: var(--mantine-color-dark-2);
+    --mantine-color-disabled: var(--mantine-color-dark-6);
+    --mantine-color-disabled-color: var(--mantine-color-dark-3);
+    --mantine-color-disabled-border: var(--mantine-color-dark-4);
     
-    /* Neutral Colors */
-    --gray-50: #f9fafb;
-    --gray-100: #f3f4f6;
-    --gray-200: #e5e7eb;
-    --gray-300: #d1d5db;
-    --gray-400: #9ca3af;
-    --gray-500: #6b7280;
-    --gray-600: #4b5563;
-    --gray-700: #374151;
-    --gray-800: #1f2937;
-    --gray-900: #111827;
+    /* Dark colors */
+    --mantine-color-dark-0: #c9c9c9;
+    --mantine-color-dark-1: #b8b8b8;
+    --mantine-color-dark-2: #828282;
+    --mantine-color-dark-3: #696969;
+    --mantine-color-dark-4: #424242;
+    --mantine-color-dark-5: #3b3b3b;
+    --mantine-color-dark-6: #2e2e2e;
+    --mantine-color-dark-7: #242424;
+    --mantine-color-dark-8: #1f1f1f;
+    --mantine-color-dark-9: #141414;
     
-    /* Semantic Colors */
-    --success: #10b981;
-    --success-bg: #d1fae5;
-    --warning: #f59e0b;
-    --warning-bg: #fef3c7;
-    --error: #ef4444;
-    --error-bg: #fee2e2;
-    --info: #3b82f6;
-    --info-bg: #dbeafe;
+    /* Gray colors */
+    --mantine-color-gray-0: #f8f9fa;
+    --mantine-color-gray-1: #f1f3f5;
+    --mantine-color-gray-2: #e9ecef;
+    --mantine-color-gray-3: #dee2e6;
+    --mantine-color-gray-4: #ced4da;
+    --mantine-color-gray-5: #adb5bd;
+    --mantine-color-gray-6: #868e96;
+    --mantine-color-gray-7: #495057;
+    --mantine-color-gray-8: #343a40;
+    --mantine-color-gray-9: #212529;
     
-    /* Background */
-    --bg-primary: #0f0f12;
-    --bg-secondary: #16161a;
-    --bg-tertiary: #1e1e24;
-    --bg-elevated: #25252d;
+    /* Blue (primary) */
+    --mantine-color-blue-0: #e7f5ff;
+    --mantine-color-blue-1: #d0ebff;
+    --mantine-color-blue-2: #a5d8ff;
+    --mantine-color-blue-3: #74c0fc;
+    --mantine-color-blue-4: #4dabf7;
+    --mantine-color-blue-5: #339af0;
+    --mantine-color-blue-6: #228be6;
+    --mantine-color-blue-7: #1c7ed6;
+    --mantine-color-blue-8: #1971c2;
+    --mantine-color-blue-9: #1864ab;
     
-    /* Text */
-    --text-primary: #ffffff;
-    --text-secondary: #a1a1aa;
-    --text-tertiary: #71717a;
+    /* Filled variants for dark theme */
+    --mantine-color-blue-filled: #1971c2;
+    --mantine-color-blue-filled-hover: #1864ab;
+    --mantine-color-blue-light: rgba(34, 139, 230, 0.15);
+    --mantine-color-blue-light-hover: rgba(34, 139, 230, 0.2);
+    --mantine-color-blue-light-color: #4dabf7;
     
-    /* Borders */
-    --border-color: #27272a;
-    --border-color-hover: #3f3f46;
+    /* Cyan (accent like docs.rw) */
+    --mantine-color-cyan-4: #22d3ee;
+    --mantine-color-cyan-5: #06b6d4;
+    --mantine-color-cyan-6: #0891b2;
     
-    /* Spacing */
-    --sidebar-width: 260px;
-    --header-height: 56px;
+    /* Red */
+    --mantine-color-red-0: #fff5f5;
+    --mantine-color-red-1: #ffe3e3;
+    --mantine-color-red-2: #ffc9c9;
+    --mantine-color-red-3: #ffa8a8;
+    --mantine-color-red-4: #ff8787;
+    --mantine-color-red-5: #ff6b6b;
+    --mantine-color-red-6: #fa5252;
+    --mantine-color-red-7: #f03e3e;
+    --mantine-color-red-8: #e03131;
+    --mantine-color-red-9: #c92a2a;
     
-    /* Transitions */
-    --transition-fast: 150ms ease;
-    --transition-normal: 250ms ease;
-    --transition-slow: 350ms ease;
-    
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-    
-    /* Border Radius */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
-    --radius-full: 9999px;
+    /* Violet */
+    --mantine-color-violet-4: #9775fa;
+    --mantine-color-violet-5: #845ef7;
+    --mantine-color-violet-6: #7950f2;
 }
 
-/* Reset & Base */
+/* Reset */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -87,34 +147,33 @@
 
 html {
     font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: var(--mantine-webkit-font-smoothing);
+    -moz-osx-font-smoothing: var(--mantine-moz-font-smoothing);
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.5;
+    font-family: var(--mantine-font-family);
+    font-size: var(--mantine-font-size-md);
+    line-height: var(--mantine-line-height);
+    background-color: var(--mantine-color-body);
+    color: var(--mantine-color-text);
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
+    font-weight: var(--mantine-heading-font-weight);
     line-height: 1.3;
-    color: var(--text-primary);
+    color: var(--mantine-color-white);
+    font-family: var(--mantine-font-family-headings, var(--mantine-font-family));
 }
 
-h1 { font-size: 1.75rem; }
-h2 { font-size: 1.25rem; }
-h3 { font-size: 1rem; }
-
-code {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.875em;
-}
+h1 { font-size: var(--mantine-h1-font-size, 2.125rem); }
+h2 { font-size: var(--mantine-h2-font-size, 1.625rem); }
+h3 { font-size: var(--mantine-h3-font-size, 1.375rem); }
+h4 { font-size: var(--mantine-h4-font-size, 1.125rem); }
+h5 { font-size: var(--mantine-h5-font-size, 1rem); }
+h6 { font-size: var(--mantine-h6-font-size, 0.875rem); }
 
 /* Auth Container */
 .auth-container {
@@ -123,7 +182,7 @@ code {
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    background-color: var(--mantine-color-body);
     position: relative;
     overflow: hidden;
 }
@@ -135,24 +194,26 @@ code {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
-    animation: gradientMove 20s ease-in-out infinite;
+    background: 
+        radial-gradient(ellipse at 25% 40%, rgba(151, 117, 250, 0.08), transparent 50%),
+        radial-gradient(ellipse at 85% 85%, rgba(34, 211, 238, 0.06), transparent 50%);
+    animation: blobFloat 20s ease-in-out infinite;
 }
 
-@keyframes gradientMove {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-5%, -5%) scale(1.1); }
+@keyframes blobFloat {
+    0%, 100% { transform: scale(1) translate(0); opacity: 0.3; }
+    33% { transform: scale(1.1) translate(-20px, 20px); opacity: 0.5; }
+    66% { transform: scale(1.2) translate(20px, -20px); opacity: 0.4; }
 }
 
 .auth-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xl);
+    background: var(--mantine-color-dark-7);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
     padding: 2.5rem;
     width: 100%;
     max-width: 420px;
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--mantine-shadow-xl);
     position: relative;
     z-index: 1;
 }
@@ -169,15 +230,12 @@ code {
 .auth-header h1 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    letter-spacing: -0.03125rem;
 }
 
 .auth-header .subtitle {
-    color: var(--text-tertiary);
-    font-size: 0.875rem;
+    color: var(--mantine-color-dimmed);
+    font-size: var(--mantine-font-size-sm);
 }
 
 /* Forms */
@@ -194,35 +252,35 @@ code {
 }
 
 .form-group label {
-    font-size: 0.875rem;
+    font-size: var(--mantine-font-size-sm);
     font-weight: 500;
-    color: var(--text-secondary);
+    color: var(--mantine-color-dimmed);
 }
 
 .form-group input {
     width: 100%;
     padding: 0.75rem 1rem;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    color: var(--text-primary);
-    font-size: 0.9375rem;
-    transition: all var(--transition-fast);
+    background: var(--mantine-color-dark-6);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
+    color: var(--mantine-color-text);
+    font-size: var(--mantine-font-size-md);
+    transition: all 0.15s ease;
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: var(--primary-500);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    border-color: var(--mantine-color-blue-6);
+    box-shadow: 0 0 0 2px rgba(34, 139, 230, 0.15);
 }
 
 .form-group input::placeholder {
-    color: var(--text-tertiary);
+    color: var(--mantine-color-placeholder);
 }
 
 .form-group .hint {
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
+    font-size: var(--mantine-font-size-xs);
+    color: var(--mantine-color-dimmed);
 }
 
 .error-message {
@@ -230,11 +288,11 @@ code {
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1rem;
-    background: var(--error-bg);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    border-radius: var(--radius-md);
-    color: var(--error);
-    font-size: 0.875rem;
+    background: rgba(224, 49, 49, 0.1);
+    border: 1px solid rgba(224, 49, 49, 0.3);
+    border-radius: var(--mantine-radius-md);
+    color: var(--mantine-color-red-4);
+    font-size: var(--mantine-font-size-sm);
 }
 
 /* Buttons */
@@ -244,34 +302,36 @@ code {
     justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 1.25rem;
-    font-size: 0.9375rem;
-    font-weight: 500;
+    font-size: var(--mantine-font-size-md);
+    font-weight: 600;
     border: none;
-    border-radius: var(--radius-md);
+    border-radius: var(--mantine-radius-md);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: all 0.15s ease;
     text-decoration: none;
+    height: calc(2.625rem * var(--mantine-scale));
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-500) 0%, var(--purple-500) 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--mantine-color-blue-6) 0%, var(--mantine-color-cyan-5) 100%);
+    color: var(--mantine-color-white);
 }
 
 .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(34, 139, 230, 0.3);
+    background: linear-gradient(135deg, var(--mantine-color-blue-7) 0%, var(--mantine-color-cyan-6) 100%);
 }
 
 .btn-secondary {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
+    background: var(--mantine-color-dark-6);
+    color: var(--mantine-color-text);
+    border: 1px solid var(--mantine-color-dark-4);
 }
 
 .btn-secondary:hover {
-    background: var(--bg-elevated);
-    border-color: var(--border-color-hover);
+    background: var(--mantine-color-dark-5);
+    border-color: var(--mantine-color-dark-3);
 }
 
 .btn-icon {
@@ -281,34 +341,37 @@ code {
     padding: 0.5rem;
     background: transparent;
     border: none;
-    border-radius: var(--radius-md);
-    color: var(--text-secondary);
+    border-radius: var(--mantine-radius-md);
+    color: var(--mantine-color-dimmed);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: all 0.15s ease;
+    width: calc(2rem * var(--mantine-scale));
+    height: calc(2rem * var(--mantine-scale));
 }
 
 .btn-icon:hover {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
+    background: var(--mantine-color-dark-6);
+    color: var(--mantine-color-white);
 }
 
 .auth-footer {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--mantine-color-dark-4);
     text-align: center;
 }
 
 .auth-footer p {
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
+    font-size: var(--mantine-font-size-xs);
+    color: var(--mantine-color-dimmed);
 }
 
 .auth-footer code {
-    background: var(--bg-tertiary);
+    background: var(--mantine-color-dark-6);
     padding: 0.25rem 0.5rem;
-    border-radius: var(--radius-sm);
-    color: var(--primary-400);
+    border-radius: var(--mantine-radius-sm);
+    color: var(--mantine-color-blue-4);
+    font-family: var(--mantine-font-family-monospace);
 }
 
 /* Dashboard Layout */
@@ -319,9 +382,9 @@ code {
 
 /* Sidebar */
 .sidebar {
-    width: var(--sidebar-width);
-    background: var(--bg-secondary);
-    border-right: 1px solid var(--border-color);
+    width: 260px;
+    background: var(--mantine-color-dark-7);
+    border-right: 1px solid var(--mantine-color-dark-4);
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -336,7 +399,7 @@ code {
     align-items: center;
     gap: 0.75rem;
     padding: 1.25rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--mantine-color-dark-4);
 }
 
 .logo-small {
@@ -344,9 +407,10 @@ code {
 }
 
 .brand {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-size: var(--mantine-font-size-md);
+    font-weight: 700;
+    color: var(--mantine-color-white);
+    letter-spacing: -0.03125rem;
 }
 
 .sidebar-nav {
@@ -362,22 +426,22 @@ code {
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1rem;
-    color: var(--text-secondary);
+    color: var(--mantine-color-dimmed);
     text-decoration: none;
-    border-radius: var(--radius-md);
-    transition: all var(--transition-fast);
-    font-size: 0.9375rem;
+    border-radius: var(--mantine-radius-md);
+    transition: all 0.15s ease;
+    font-size: var(--mantine-font-size-sm);
     font-weight: 500;
 }
 
 .nav-item:hover {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
+    background: var(--mantine-color-dark-6);
+    color: var(--mantine-color-white);
 }
 
 .nav-item.active {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
-    color: var(--primary-400);
+    background: var(--mantine-color-blue-light);
+    color: var(--mantine-color-blue-light-color);
 }
 
 .sidebar-footer {
@@ -385,7 +449,7 @@ code {
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--mantine-color-dark-4);
 }
 
 .user-info {
@@ -397,14 +461,14 @@ code {
 .avatar {
     width: 36px;
     height: 36px;
-    border-radius: var(--radius-full);
-    background: linear-gradient(135deg, var(--primary-500) 0%, var(--purple-500) 100%);
+    border-radius: var(--mantine-radius-xl);
+    background: linear-gradient(135deg, var(--mantine-color-blue-6) 0%, var(--mantine-color-cyan-5) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 600;
-    font-size: 0.9375rem;
-    color: white;
+    font-weight: 700;
+    font-size: var(--mantine-font-size-md);
+    color: var(--mantine-color-white);
 }
 
 .user-details {
@@ -413,14 +477,14 @@ code {
 }
 
 .username {
-    font-size: 0.875rem;
+    font-size: var(--mantine-font-size-sm);
     font-weight: 500;
-    color: var(--text-primary);
+    color: var(--mantine-color-white);
 }
 
 .status {
-    font-size: 0.75rem;
-    color: var(--success);
+    font-size: var(--mantine-font-size-xs);
+    color: var(--mantine-color-green-5, #40c057);
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -430,7 +494,7 @@ code {
     content: '';
     width: 6px;
     height: 6px;
-    background: var(--success);
+    background: var(--mantine-color-green-5, #40c057);
     border-radius: 50%;
 }
 
@@ -439,22 +503,22 @@ code {
     align-items: center;
     justify-content: center;
     padding: 0.5rem;
-    color: var(--text-tertiary);
-    transition: all var(--transition-fast);
-    border-radius: var(--radius-md);
+    color: var(--mantine-color-dimmed);
+    transition: all 0.15s ease;
+    border-radius: var(--mantine-radius-md);
 }
 
 .btn-logout:hover {
-    background: var(--bg-tertiary);
-    color: var(--error);
+    background: var(--mantine-color-dark-6);
+    color: var(--mantine-color-red-5);
 }
 
 /* Main Content */
 .main-content {
     flex: 1;
-    margin-left: var(--sidebar-width);
+    margin-left: 260px;
     min-height: 100vh;
-    background: var(--bg-primary);
+    background: var(--mantine-color-body);
 }
 
 .top-bar {
@@ -462,32 +526,32 @@ code {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.5rem;
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-color);
-    height: var(--header-height);
+    background: var(--mantine-color-dark-7);
+    border-bottom: 1px solid var(--mantine-color-dark-4);
+    height: 56px;
     position: sticky;
     top: 0;
     z-index: 50;
 }
 
 .breadcrumb .current-page {
-    font-size: 0.9375rem;
+    font-size: var(--mantine-font-size-md);
     font-weight: 500;
-    color: var(--text-primary);
+    color: var(--mantine-color-white);
 }
 
 .server-status {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--text-secondary);
+    font-size: var(--mantine-font-size-sm);
+    color: var(--mantine-color-dimmed);
 }
 
 .status-dot {
     width: 8px;
     height: 8px;
-    background: var(--success);
+    background: var(--mantine-color-green-5, #40c057);
     border-radius: 50%;
     animation: pulse 2s ease-in-out infinite;
 }
@@ -516,17 +580,17 @@ code {
 }
 
 .stat-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    background: var(--mantine-color-dark-7);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
     padding: 1.25rem;
-    transition: all var(--transition-fast);
+    transition: all 0.15s ease;
 }
 
 .stat-card:hover {
-    border-color: var(--border-color-hover);
+    border-color: var(--mantine-color-dark-3);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--mantine-shadow-lg);
 }
 
 .stat-header {
@@ -537,54 +601,56 @@ code {
 }
 
 .stat-label {
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+    font-size: var(--mantine-font-size-xs);
+    font-weight: 600;
+    color: var(--mantine-color-dimmed);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .stat-icon {
-    color: var(--text-tertiary);
+    color: var(--mantine-color-dimmed);
 }
 
 .stat-value {
     font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-weight: 700;
+    color: var(--mantine-color-white);
     margin-bottom: 0.75rem;
     font-variant-numeric: tabular-nums;
 }
 
 .stat-bar {
     height: 4px;
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-full);
+    background: var(--mantine-color-dark-6);
+    border-radius: var(--mantine-radius-xl);
     overflow: hidden;
 }
 
 .stat-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary-500) 0%, var(--purple-500) 100%);
-    border-radius: var(--radius-full);
+    background: linear-gradient(90deg, var(--mantine-color-blue-6) 0%, var(--mantine-color-cyan-5) 100%);
+    border-radius: var(--mantine-radius-xl);
     transition: width 0.5s ease;
 }
 
 .stat-subvalue {
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
+    font-size: var(--mantine-font-size-xs);
+    color: var(--mantine-color-dimmed);
 }
 
 /* Info Section */
 .info-section {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    background: var(--mantine-color-dark-7);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
     padding: 1.25rem;
 }
 
 .section-title {
-    font-size: 1rem;
+    font-size: var(--mantine-font-size-md);
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--mantine-color-white);
     margin-bottom: 1rem;
 }
 
@@ -601,31 +667,31 @@ code {
 }
 
 .info-label {
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
+    font-size: var(--mantine-font-size-xs);
+    color: var(--mantine-color-dimmed);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .info-value {
-    font-size: 0.9375rem;
-    color: var(--text-primary);
+    font-size: var(--mantine-font-size-md);
+    color: var(--mantine-color-text);
 }
 
 .info-value.code {
-    font-family: 'JetBrains Mono', monospace;
-    background: var(--bg-tertiary);
+    font-family: var(--mantine-font-family-monospace);
+    background: var(--mantine-color-dark-6);
     padding: 0.25rem 0.5rem;
-    border-radius: var(--radius-sm);
-    color: var(--primary-400);
+    border-radius: var(--mantine-radius-sm);
+    color: var(--mantine-color-blue-4);
     display: inline-block;
 }
 
 /* Files Container */
 .files-container {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    background: var(--mantine-color-dark-7);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
     overflow: hidden;
 }
 
@@ -634,7 +700,7 @@ code {
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--mantine-color-dark-4);
     gap: 1rem;
 }
 
@@ -647,9 +713,9 @@ code {
 }
 
 .current-path {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.875rem;
-    color: var(--text-secondary);
+    font-family: var(--mantine-font-family-monospace);
+    font-size: var(--mantine-font-size-sm);
+    color: var(--mantine-color-dimmed);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -672,8 +738,8 @@ code {
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--border-color);
-    transition: all var(--transition-fast);
+    border-bottom: 1px solid var(--mantine-color-dark-4);
+    transition: all 0.15s ease;
 }
 
 .file-item:last-child {
@@ -681,7 +747,7 @@ code {
 }
 
 .file-item:hover {
-    background: var(--bg-tertiary);
+    background: var(--mantine-color-dark-6);
 }
 
 .file-icon {
@@ -690,29 +756,29 @@ code {
     justify-content: center;
     width: 36px;
     height: 36px;
-    border-radius: var(--radius-md);
-    background: var(--bg-elevated);
-    color: var(--text-secondary);
+    border-radius: var(--mantine-radius-md);
+    background: var(--mantine-color-dark-5);
+    color: var(--mantine-color-dimmed);
 }
 
 .file-icon.folder {
-    color: var(--warning);
+    color: var(--mantine-color-yellow-5, #fcc419);
 }
 
 .file-icon.file {
-    color: var(--primary-400);
+    color: var(--mantine-color-blue-4);
 }
 
 .file-icon.image {
-    color: var(--success);
+    color: var(--mantine-color-green-5, #40c057);
 }
 
 .file-icon.archive {
-    color: var(--purple-500);
+    color: var(--mantine-color-violet-4);
 }
 
 .file-icon.code {
-    color: var(--info);
+    color: var(--mantine-color-cyan-4);
 }
 
 .file-info {
@@ -720,16 +786,16 @@ code {
 }
 
 .file-name {
-    font-size: 0.9375rem;
-    color: var(--text-primary);
+    font-size: var(--mantine-font-size-md);
+    color: var(--mantine-color-text);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .file-meta {
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
+    font-size: var(--mantine-font-size-xs);
+    color: var(--mantine-color-dimmed);
     display: flex;
     gap: 1rem;
     margin-top: 0.25rem;
@@ -744,7 +810,7 @@ code {
     align-items: center;
     gap: 0.25rem;
     opacity: 0;
-    transition: opacity var(--transition-fast);
+    transition: opacity 0.15s ease;
 }
 
 .file-item:hover .file-actions {
@@ -753,9 +819,9 @@ code {
 
 /* Terminal */
 .terminal-container {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    background: var(--mantine-color-dark-7);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
     overflow: hidden;
     height: calc(100vh - 140px);
     display: flex;
@@ -767,32 +833,38 @@ code {
     align-items: center;
     justify-content: space-between;
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--mantine-color-dark-4);
 }
 
 .terminal-title {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.875rem;
+    font-size: var(--mantine-font-size-sm);
     font-weight: 500;
-    color: var(--text-secondary);
+    color: var(--mantine-color-dimmed);
+}
+
+.terminal-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .terminal {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: #0d0d10;
+    background: #0d1117;
     overflow: hidden;
 }
 
 .terminal-output {
     flex: 1;
     padding: 1rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.875rem;
-    color: var(--text-secondary);
+    font-family: var(--mantine-font-family-monospace);
+    font-size: var(--mantine-font-size-sm);
+    color: var(--mantine-color-dimmed);
     overflow-y: auto;
     white-space: pre-wrap;
     word-break: break-all;
@@ -802,14 +874,14 @@ code {
     display: flex;
     align-items: center;
     padding: 0.75rem 1rem;
-    border-top: 1px solid var(--border-color);
-    background: var(--bg-tertiary);
+    border-top: 1px solid var(--mantine-color-dark-4);
+    background: var(--mantine-color-dark-6);
 }
 
 .prompt {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.875rem;
-    color: var(--success);
+    font-family: var(--mantine-font-family-monospace);
+    font-size: var(--mantine-font-size-sm);
+    color: var(--mantine-color-green-5, #40c057);
     margin-right: 0.5rem;
     white-space: nowrap;
 }
@@ -819,9 +891,9 @@ code {
     background: transparent;
     border: none;
     outline: none;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.875rem;
-    color: var(--text-primary);
+    font-family: var(--mantine-font-family-monospace);
+    font-size: var(--mantine-font-size-sm);
+    color: var(--mantine-color-text);
 }
 
 /* Modal */
@@ -833,7 +905,7 @@ code {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
     z-index: 1000;
     align-items: center;
     justify-content: center;
@@ -845,9 +917,9 @@ code {
 }
 
 .modal-content {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    background: var(--mantine-color-dark-7);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-lg);
     width: 100%;
     max-width: 480px;
     max-height: 90vh;
@@ -877,11 +949,11 @@ code {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.25rem;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--mantine-color-dark-4);
 }
 
 .modal-header h3 {
-    font-size: 1rem;
+    font-size: var(--mantine-font-size-md);
     font-weight: 600;
 }
 
@@ -895,14 +967,14 @@ code {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.25rem;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--mantine-color-dark-4);
     gap: 1rem;
 }
 
 .file-path {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
+    font-family: var(--mantine-font-family-monospace);
+    font-size: var(--mantine-font-size-xs);
+    color: var(--mantine-color-dimmed);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -916,34 +988,34 @@ code {
 #file-editor-content {
     width: 100%;
     min-height: 400px;
-    background: #0d0d10;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
+    background: #0d1117;
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
     padding: 1rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.875rem;
-    color: var(--text-primary);
+    font-family: var(--mantine-font-family-monospace);
+    font-size: var(--mantine-font-size-sm);
+    color: var(--mantine-color-text);
     resize: vertical;
 }
 
 #file-editor-content:focus {
     outline: none;
-    border-color: var(--primary-500);
+    border-color: var(--mantine-color-blue-6);
 }
 
 .input-field {
     width: 100%;
     padding: 0.75rem 1rem;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    color: var(--text-primary);
-    font-size: 0.9375rem;
+    background: var(--mantine-color-dark-6);
+    border: 1px solid var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-md);
+    color: var(--mantine-color-text);
+    font-size: var(--mantine-font-size-md);
 }
 
 .input-field:focus {
     outline: none;
-    border-color: var(--primary-500);
+    border-color: var(--mantine-color-blue-6);
 }
 
 /* Scrollbar */
@@ -953,23 +1025,23 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg-tertiary);
+    background: var(--mantine-color-dark-6);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--gray-600);
-    border-radius: var(--radius-full);
+    background: var(--mantine-color-dark-4);
+    border-radius: var(--mantine-radius-xl);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--gray-500);
+    background: var(--mantine-color-dark-3);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
-        transition: transform var(--transition-normal);
+        transition: transform 0.25s ease;
     }
     
     .main-content {
@@ -983,4 +1055,21 @@ code {
     .info-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Additional Mantine-like utilities */
+.text-gradient {
+    background: linear-gradient(135deg, var(--mantine-color-blue-4) 0%, var(--mantine-color-cyan-4) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-hover {
+    transition: all 0.15s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--mantine-shadow-lg);
 }
