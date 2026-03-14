@@ -121,8 +121,6 @@ create_app_directory() {
 
     # Download static files
     curl -sSL "$GITHUB_RAW/static/css/style.css" -o static/css/style.css
-    curl -sSL "$GITHUB_RAW/static/css/mantine.css" -o static/css/mantine.css
-    curl -sSL "$GITHUB_RAW/static/css/mantine_vars.css" -o static/css/mantine_vars.css
     curl -sSL "$GITHUB_RAW/static/js/dashboard.js" -o static/js/dashboard.js
 
     log_success "Файлы загружены"
