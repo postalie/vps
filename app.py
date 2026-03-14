@@ -65,21 +65,49 @@ def init_db():
 def get_secure_path():
     config_file = AUTH_FILE
     if config_file.exists():
-        with open(config_file, 'r') as f:
-            config = json.load(f)
-            return config.get('secure_path', 'dashboard')
-    else:
-        secure_path = secrets.token_urlsafe(16)
-        config = {
-            'secure_path': secure_path,
-            'created_at': datetime.now().isoformat(),
-            'port': 50011
-        }
-        with open(config_file, 'w') as f:
-            json.dump(config, f, indent=2)
-        return secure_path
+        try:
+            with open(config_file, 'r') as f:
+                config = json.load(f)
+                return config.get('secure_path', 'dashboard')
+        except:
+            pass
+    
+    # Generate new if not exists or error
+    secure_path = secrets.token_urlsafe(16)
+    config = {
+        'secure_path': secure_path,
+        'created_at': datetime.now().isoformat(),
+        'port': 50011
+    }
+    AUTH_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(config_file, 'w') as f:
+        json.dump(config, f, indent=2)
+    return secure_path
 
-SECURE_PATH = get_secure_path()
+# Get secure path dynamically (not cached)
+def get_current_secure_path():
+    return get_secure_path()
+
+# Cache secure path at startup
+SECURE_PATH = get_current_secure_path()
+
+# Middleware to update secure path on each request (for first run)
+@app.before_request
+def update_secure_path():
+    global SECURE_PATH
+    current = get_current_secure_path()
+    if current != SECURE_PATH:
+        SECURE_PATH = current
+
+# Redirect old secure path to new one
+@app.before_request
+def redirect_old_secure_path():
+    current_path = get_current_secure_path()
+    if request.path.startswith('/') and not request.path.startswith(f'/{current_path}'):
+        # Check if it's an old secure path
+        parts = request.path.strip('/').split('/')
+        if len(parts) > 0 and len(parts[0]) == 32:  # Old secure path format
+            return redirect(f'/{current_path}/' + '/'.join(parts[1:]))
 
 # User class
 class User(UserMixin):
