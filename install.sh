@@ -94,13 +94,36 @@ install_dependencies() {
     log_success "Зависимости установлены"
 }
 
-# Create app directory
+# Create app directory and download files
 create_app_directory() {
     log_info "Создание директории приложения..."
     
     mkdir -p "$APP_DIR"
     cd "$APP_DIR"
     
+    # Download app files from GitHub
+    log_info "Скачивание файлов приложения..."
+    
+    GITHUB_RAW="https://raw.githubusercontent.com/postalie/vps/main"
+    
+    # Download main files
+    curl -sSL "$GITHUB_RAW/app.py" -o app.py
+    curl -sSL "$GITHUB_RAW/requirements.txt" -o requirements.txt
+    
+    # Create directories
+    mkdir -p static/css static/js templates auth certs
+    
+    # Download templates
+    curl -sSL "$GITHUB_RAW/templates/base.html" -o templates/base.html
+    curl -sSL "$GITHUB_RAW/templates/register.html" -o templates/register.html
+    curl -sSL "$GITHUB_RAW/templates/login.html" -o templates/login.html
+    curl -sSL "$GITHUB_RAW/templates/dashboard.html" -o templates/dashboard.html
+    
+    # Download static files
+    curl -sSL "$GITHUB_RAW/static/css/style.css" -o static/css/style.css
+    curl -sSL "$GITHUB_RAW/static/js/dashboard.js" -o static/js/dashboard.js
+    
+    log_success "Файлы загружены"
     log_success "Директория создана: $APP_DIR"
 }
 
