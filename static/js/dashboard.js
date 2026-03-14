@@ -182,6 +182,13 @@ function renderFiles(data) {
                     </div>
                 </div>
                 <div class="file-actions">
+                    ${item.is_dir ? `
+                        <button class="btn-icon" onclick="openDirectory('${escapeHtml(item.path)}')" title="Открыть">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </button>
+                    ` : ''}
                     ${!item.is_dir ? `
                         <button class="btn-icon" onclick="downloadFile('${escapeHtml(item.path)}')" title="Скачать">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -207,12 +214,24 @@ function renderFiles(data) {
             </div>
         `;
     }).join('');
-    
+
     // Add click handlers for directories
     container.querySelectorAll('.file-item').forEach(item => {
+        const path = item.dataset.path;
+        const isDir = item.querySelector('.file-icon').classList.contains('folder');
+        
+        // Одинарный клик для папок - открывает директорию
+        item.addEventListener('click', (e) => {
+            // Игнорировать клики по кнопкам действий
+            if (e.target.closest('.file-actions')) return;
+            
+            if (isDir) {
+                loadFiles(path);
+            }
+        });
+        
+        // Двойной клик тоже работает
         item.addEventListener('dblclick', () => {
-            const path = item.dataset.path;
-            const isDir = item.querySelector('.file-icon').classList.contains('folder');
             if (isDir) {
                 loadFiles(path);
             }
@@ -258,6 +277,10 @@ function formatSize(bytes) {
 function goBack() {
     const parentPath = currentPath.substring(0, currentPath.lastIndexOf('/')) || '/';
     loadFiles(parentPath);
+}
+
+function openDirectory(path) {
+    loadFiles(path);
 }
 
 async function downloadFile(path) {
