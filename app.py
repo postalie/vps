@@ -39,13 +39,15 @@ login_manager.login_view = 'login'
 
 # Database setup
 def get_db():
-    db = sqlite3.connect(BASE_DIR / "auth" / "users.db")
+    db_path = BASE_DIR / "auth" / "users.db"
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    db = sqlite3.connect(db_path)
     db.row_factory = sqlite3.Row
     return db
 
 def init_db():
     auth_dir = BASE_DIR / "auth"
-    auth_dir.mkdir(exist_ok=True)
+    auth_dir.mkdir(parents=True, exist_ok=True)
     
     db = get_db()
     db.execute('''

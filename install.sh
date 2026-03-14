@@ -459,19 +459,21 @@ display_summary() {
     echo -e "${GREEN}╚════════════════════════════════════════════════════════╝${NC}"
     echo ""
     echo -e "  ${YELLOW}URL панели управления:${NC}"
-    echo -e "  ${BLUE}$DASHBOARD_URL${NC}"
+    echo -e "  ${BLUE}${DASHBOARD_URL}${NC}"
     echo ""
     echo -e "  ${YELLOW}Порт:${NC} $PORT"
     echo -e "  ${YELLOW}Директория:${NC} $APP_DIR"
     echo ""
-    
+
     if [[ "$USE_LETSENCRYPT" == "true" && -n "$DOMAIN" ]]; then
         echo -e "  ${GREEN}✓ SSL: Let's Encrypt ($DOMAIN)${NC}"
+        echo -e "  ${GREEN}✓ URL: https://$DOMAIN:$PORT/$SECURE_PATH${NC}"
     else
         echo -e "  ${YELLOW}! SSL: Самоподписанный сертификат${NC}"
-        echo -e "    Браузер покажет предупреждение - это нормально"
+        echo -e "    ${YELLOW}URL: https://$VPS_IP:$PORT/$SECURE_PATH${NC}"
+        echo -e "    Браузер покажет предупреждение - нажмите \"Продолжить\""
     fi
-    
+
     echo ""
     echo -e "  ${BLUE}Следующие шаги:${NC}"
     echo "    1. Откройте URL панели управления в браузере"
@@ -483,11 +485,13 @@ display_summary() {
     echo "    systemctl restart $SERVICE_NAME   # Перезапуск"
     echo "    systemctl stop $SERVICE_NAME      # Остановка"
     echo ""
-    
+
     # Save URL to file for reference
     echo "$DASHBOARD_URL" > "$APP_DIR/dashboard.url"
-    
+    echo "$DASHBOARD_URL" > "$APP_DIR/auth/url.txt"
+
     log_success "URL сохранён в: $APP_DIR/dashboard.url"
+    log_success "URL сохранён в: $APP_DIR/auth/url.txt"
 }
 
 # Main installation
