@@ -130,14 +130,14 @@ create_app_directory() {
 # Setup Python virtual environment
 setup_python() {
     log_info "Настройка Python окружения..."
-    
+
     # Create venv
     python3 -m venv venv
     source venv/bin/activate
-    
+
     # Upgrade pip
     pip install --upgrade pip -q
-    
+
     # Install Flask and dependencies
     pip install -q \
         flask \
@@ -149,8 +149,38 @@ setup_python() {
         eventlet \
         gunicorn \
         werkzeug
-    
+
     log_success "Python окружение настроено"
+}
+
+# Initialize database
+init_database() {
+    log_info "Инициализация базы данных..."
+    
+    cd "$APP_DIR"
+    source venv/bin/activate
+    
+    python3 -c "
+import sqlite3
+from pathlib import Path
+
+db_path = Path('auth/users.db')
+db_path.parent.mkdir(exist_ok=True)
+
+conn = sqlite3.connect(db_path)
+conn.execute('''
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        password_hash TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+''')
+conn.commit()
+conn.close()
+"
+    
+    log_success "База данных создана"
 }
 
 # Get VPS IP
@@ -476,12 +506,13 @@ main() {
     install_dependencies
     create_app_directory
     setup_python
+    init_database
     generate_config
     setup_ssl
     configure_nginx
     create_systemd_service
     configure_firewall
-    
+
     display_summary
     
     echo -e "${GREEN}Установка завершена успешно!${NC}"
