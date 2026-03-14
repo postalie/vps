@@ -30,7 +30,7 @@ AUTH_FILE = BASE_DIR / "auth" / "config.json"
 CERTS_DIR = BASE_DIR / "certs"
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'zip', 'tar', 'gz', 'py', 'js', 'html', 'css', 'json', 'xml', 'yaml', 'yml', 'md', 'sh', 'conf', 'cfg', 'log'}
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 app.secret_key = secrets.token_hex(32)
 socketio = SocketIO(app, cors_allowed_origins="*")
 login_manager = LoginManager()
