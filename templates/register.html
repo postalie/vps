@@ -1,0 +1,55 @@
+
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="url(#gradient)"/>
+                    <path d="M12 20L18 26L28 14" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop stop-color="#6366F1"/>
+                            <stop offset="1" stop-color="#8B5CF6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <h1>VPS Dashboard</h1>
+            <p class="subtitle">Первичная настройка</p>
+        </div>
+        
+        <form method="POST" class="auth-form">
+            <div class="form-group">
+                <label for="username">Логин</label>
+                <input type="text" id="username" name="username" required autocomplete="username" placeholder="admin">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" required autocomplete="new-password" placeholder="••••••••">
+                <span class="hint">Минимум 6 символов</span>
+            </div>
+            
+            {% if error %}
+            <div class="error-message">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 1a3 3 0 0 0-2.83 4H4a.5.5 0 0 0 0 1h1.09l-.93 5.54a.5.5 0 0 0 .98.16L6 6.5h4l.86 5.2a.5.5 0 0 0 .98-.16L10.91 6H12a.5.5 0 0 0 0-1h-1.17A3 3 0 0 0 8 1zm0 1a2 2 0 0 1 1.94 2.5H6.06A2 2 0 0 1 8 2z"/>
+                </svg>
+                {{ error }}
+            </div>
+            {% endif %}
+            
+            <button type="submit" class="btn btn-primary">
+                Зарегистрироваться
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M11.5 8L6.5 13L5.085 11.585L8.67 8L5.085 4.415L6.5 3L11.5 8Z"/>
+                </svg>
+            </button>
+        </form>
+        
+        <div class="auth-footer">
+            <p>Учётная запись будет использоваться для доступа к панели управления</p>
+        </div>
+    </div>
+</div>
+
